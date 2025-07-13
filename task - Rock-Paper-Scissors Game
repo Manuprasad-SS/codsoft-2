@@ -1,0 +1,26 @@
+import random
+
+ch = ["rock", "paper", "scissor"]
+
+while True:
+    uch = input("Select your choice from rock, paper, scissor: ").lower()
+    if uch not in ch:
+        print("Invalid choice...! Try again....!\n")
+        continue
+
+    cch = random.choice(ch)
+    print("Opponent's choice =", cch)
+
+    if uch == cch:
+        print("It's a tie!")
+
+    elif (uch == "rock" and cch == "scissor") or (uch == "paper" and cch == "rock") or (uch == "scissor" and cch == "paper"):
+        print("YOU WIN!")
+
+    else:
+        print("OPPONENT WINS!")
+
+    pa = input("Do you want to play again? (yes/no): ").lower()
+    if pa == "no":
+        break
+
