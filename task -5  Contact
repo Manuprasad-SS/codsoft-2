@@ -1,0 +1,105 @@
+contacts = []
+
+def addcon():
+    name = input(" Enter the name :")
+    ph = input ("Enter the number :")
+    em = input(" Enter the email :")
+    add = input(" Enter the address :")
+    contacts.append({"name": name,"phone": ph,"email": em,"address": add})
+    print("contact added successfully...")
+
+
+def viewcon():
+    if not contacts:
+        print("No contacts found.\n")
+        return
+
+    print("\nAll Contacts:")
+    i = 1
+    for c in contacts:
+        print(f"{i}. {c['name']} - {c['phone']}")
+        i += 1
+    print()
+
+def searchcon():
+    query = input("Enter full name or phone number to search: ")
+    found = False
+    for c in contacts:
+        if query == c['name'] or query == c['phone']:
+            print(f"\nName: {c['name']}\nPhone: {c['phone']}\nEmail: {c['email']}\nAddress: {c['address']}\n")
+            found = True
+    if not found:
+        print("No contact found.\n")
+
+def updatecon ():
+    phone = input("Enter phone number of the contact to update: ")
+    for c in contacts:
+        if c['phone'] == phone:
+            print("What would you like to update?")
+            print("1. Name\n2. Phone\n3. Email\n4. Address\n5. All")
+            choice = input("Enter your choice: ")
+
+            if choice == '1':
+                c['name'] = input("Enter new Store Name: ")
+            elif choice == '2':
+                c['phone'] = input("Enter new Phone Number: ")
+            elif choice == '3':
+                c['email'] = input("Enter new Email: ")
+            elif choice == '4':
+                c['address'] = input("Enter new Address: ")
+            elif choice == '5':
+                c['name'] = input("Enter new Store Name: ")
+                c['phone'] = input("Enter new Phone Number: ")
+                c['email'] = input("Enter new Email: ")
+                c['address'] = input("Enter new Address: ")
+            else:
+                print("Invalid choice.")
+                return
+
+            print("Contact updated successfully!\n")
+            return
+    print("Contact not found.\n")
+
+
+def deletecon():
+    phone = input("Enter phone number of the contact to delete: ")
+    for c in contacts:
+        if c['phone'] == phone:
+            contacts.remove(c)
+            print("Contact deleted successfully!\n")
+            return
+    print("Contact not found.\n")
+    
+
+
+
+def main():
+    while True:
+        print("....contact details.... ")
+        print("1. Add details ")
+        print("2. View all details ")
+        print("3. Search contact")
+        print("4. Update details")
+        print("5. deleate contact")
+        print("6. exit")
+        ch = input("Enter your choice(1 - 6)")
+
+        if ch == '1' :
+            addcon()
+        elif ch == '2' :
+            viewcon()
+        elif ch == '3':
+            searchcon()
+        elif ch == '4':
+            updatecon()
+        elif ch == '5' :
+            deletecon()
+        elif ch == '6' :
+            break
+        else :
+            print(" INVALID CHOICE....!")
+
+
+main()
+
+        
