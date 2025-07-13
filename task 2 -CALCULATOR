@@ -1,0 +1,28 @@
+#Mp
+
+n1 = float(input("enter the number :"))
+n2 = float(input("enter the number :"))
+op = input("choose operation (+, -, *, / ):")
+if op == '+' :
+    re = n1 + n2
+    print("RESULT = ", re)
+elif op == '-':
+    re = n1 - n2
+    print("RESULT = ", re)
+    
+elif op == '*' :
+    re = n1 * n2
+    print("RESULT = ", re)
+    
+elif op == '/' :
+    if n2 == 0 :
+        print("cannot divide by zero")
+        
+    else :
+        re = n1 / n2
+        print("RESULT = ", re)
+        
+    
+else:
+    print("INVALID OPERATION......! ")
+    
